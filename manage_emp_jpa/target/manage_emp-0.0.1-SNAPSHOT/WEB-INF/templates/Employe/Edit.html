@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+ <style>
+		 input[type=text], input[type=password] {
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+		
+		input[type=submit] {
+		  width: 100%;
+		  background-color: #4CAF50;
+		  color: white;
+		  padding: 14px 20px;
+		  margin: 8px 0;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		}
+		
+		input[type=submit]:hover {
+		  background-color: #45a049;
+		}
+		
+		div {
+		  border-radius: 5px;
+		  background-color: #f2f2f2;
+		  padding: 20px;
+		}
+</style>
+<body>
+   
+      <div>
+      
+         <form style="display: flex ;flex-direction: column;width: 50% ; margin: auto;"
+                 th:action="@{/update}" method="post">
+                 
+             <input type="hidden" name="id" th:value="${employee.id}">
+             <label for="first name">first name</label>
+              <input type="text" name="fname" th:value="${employee.firstName}">
+              
+             <label for="last name">last name</label>
+              <input type="text" name="lname" th:value="${employee.lastName}">
+              
+             <label for="email">email</label>
+              <input type="text" name="email" th:value="${employee.email}">
+              
+             <label for="password">password</label>
+              <input type="password" name="password" th:value="${employee.password}">
+              
+              <input type="submit" value="Update">
+         </form>
+      
+      </div>
+
+</body>
+</html>

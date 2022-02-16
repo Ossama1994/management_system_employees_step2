@@ -1,0 +1,22 @@
+version: "3"
+services:
+  management_sys_emp_db:
+    image: mysql:8
+    container_name: management_sys_emp_db
+    environment:
+        MYSQL_ROOT_PASSWORD: oss@m@20
+        MYSQL_DATABASE: employe
+    ports:
+      - 3308:3306
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
+   
+  sys_app:
+    container_name:  management_sys_emp
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8082:8080
+    links: 
+      - management_sys_emp_db

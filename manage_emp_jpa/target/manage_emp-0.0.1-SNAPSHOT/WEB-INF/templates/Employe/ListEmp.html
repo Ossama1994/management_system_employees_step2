@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title> Show all Employees</title>
+</head>
+		<style>
+			 table, td, th {  
+				  border: 1px solid #ddd;
+				  text-align: left;
+				}
+				
+			table {
+				  border-collapse: collapse;
+				  width: 100%;
+			   }
+				
+			th, td {
+				  padding: 15px;
+				}
+		    tr:nth-child(even){
+		          background-color: #f2f2f2;
+		        }
+		    th{
+		          background-color: #04AA6D;
+		    }
+		    th:hover{
+		          background-color: #04AA6D;
+		    }
+		    a{
+		      text-decoration: none;
+		      color : black;
+		      font-size : 20px; 
+		    }
+		</style>
+<body>
+  
+      <h1> Welcome </h1>
+         
+          <table>
+          <thead>
+          <tr>
+            <th>Emp id</th>
+            <th>Emp first name</th>
+            <th>Emp last name</th>
+            <th>Emp email</th>
+            <th>Emp Pasword </th>
+            <th>Manage</th>
+          </tr>
+          </thead>
+          <tbody>
+           <tr th:each="emp:${employees}">
+           <td th:text="${emp.id}"></td>
+           <td th:text="${emp.firstName}"></td>
+           <td th:text="${emp.lastName}"></td>
+           <td th:text="${emp.email}"></td>
+           <td th:text="${emp.password}"></td>
+           <td>
+           		<a th:href="@{'edit'(id=${emp.id})}">update</a>
+           		<a th:href="@{'delete'(id=${emp.id})}">delete</a>
+    	   </td>
+           </tr>
+          </tbody>
+          </table>
+
+</body>
+</html>
